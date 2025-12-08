@@ -1,0 +1,22 @@
+{
+  "name": "my-claude-skills",
+  "displayName": "My Claude Skills",
+  "description": "Custom repository for personal Claude Code skills",
+  "author": "user",
+  "version": "1.0.0",
+  "pluginGroups": [
+    {
+      "id": "my-custom-skills",
+      "name": "My Custom Skills",
+      "description": "Personal collection of Claude Code skills",
+      "plugins": [
+        {
+          "id": "skill-creator",
+          "name": "Skill Creator",
+          "description": "Guide for creating effective skills",
+          "skills": ["skill-creator"]
+        }
+      ]
+    }
+  ]
+}
