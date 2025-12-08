@@ -15,6 +15,13 @@ Guide for creating effective skills. Includes:
 - Bundled resources organization (scripts, references, assets)
 - Python utilities for initializing, validating, and packaging skills
 
+### mastermind-session
+Interactive mastermind session with 5-10 thought leaders to solve specific business, strategic, or personal challenges. Features:
+- Dynamic expert dialogue and interaction
+- Context-aware session continuity
+- 5-phase structured process (Goal Setting, Expert Selection, Facilitated Discussion, Synthesis, Action Planning)
+- Triggered by "mastermind session" or "let's start a mastermind"
+
 ## Installation
 
 ### Add this Marketplace to Claude Code
@@ -29,6 +36,7 @@ After adding the marketplace, you can install skills using:
 
 ```bash
 claude plugin install skill-creator
+claude plugin install mastermind-session
 ```
 
 Or through the Claude Code interface when browsing available skills.
@@ -61,13 +69,16 @@ python skills/skill-creator/scripts/package_skill.py skills/my-new-skill
 ```
 my-claude-skills/
 ├── .claude-plugin/
-│   └── marketplace.json      # Marketplace configuration
+│   └── marketplace.json       # Marketplace configuration
 ├── skills/
-│   └── skill-creator/         # Skill creation guide and tools
+│   ├── skill-creator/         # Skill creation guide and tools
+│   │   ├── SKILL.md           # Main skill documentation
+│   │   ├── LICENSE.txt        # Apache 2.0 license
+│   │   ├── scripts/           # Python utilities
+│   │   └── references/        # Workflow and pattern guides
+│   └── mastermind-session/    # Mastermind session skill
 │       ├── SKILL.md           # Main skill documentation
-│       ├── LICENSE.txt        # Apache 2.0 license
-│       ├── scripts/           # Python utilities
-│       └── references/        # Workflow and pattern guides
+│       └── README.md          # Skill-specific documentation
 └── README.md                  # This file
 ```
 

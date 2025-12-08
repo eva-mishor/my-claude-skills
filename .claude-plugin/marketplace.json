@@ -15,6 +15,12 @@
           "name": "Skill Creator",
           "description": "Guide for creating effective skills",
           "skills": ["skill-creator"]
+        },
+        {
+          "id": "mastermind-session",
+          "name": "Mastermind Session",
+          "description": "Interactive mastermind session with thought leaders to solve challenges",
+          "skills": ["mastermind-session"]
         }
       ]
     }
