@@ -46,6 +46,7 @@ Post-session learning extraction and memory management. Systematically scans the
 - Diff-style proposals with user approval before any writes
 - MEMORY.md capacity management with 200-line limit awareness
 - Triggered by "consolidate", "save learnings", "update memory", "extract insights", or "what did we learn"
+- [Install from Gist](https://gist.github.com/eva-mishor/2ca6bfe8f3a2ee5170e996b292340ce0)
 
 ## Installation
 
