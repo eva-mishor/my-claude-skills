@@ -1,9 +1,9 @@
 ---
-name: context-audit
+name: spring-clean
 description: Audit and optimize Claude Code session context budget. Use when sessions feel sluggish, context compacts too early, or after installing new plugins/MCP servers. Triggers on "audit context", "optimize context", "context budget", "session overhead".
 ---
 
-# Context Audit -- Session Budget Optimizer
+# Spring Clean -- Session Budget Optimizer
 
 Measure, identify, and reduce startup context overhead so more budget goes to actual work.
 

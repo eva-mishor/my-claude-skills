@@ -22,7 +22,7 @@ Interactive mastermind session with 5-10 thought leaders to solve specific busin
 - 5-phase structured process (Goal Setting, Expert Selection, Facilitated Discussion, Synthesis, Action Planning)
 - Triggered by "mastermind session" or "let's start a mastermind"
 
-### vet-skill
+### bouncer
 Security audit workflow for vetting third-party Claude Code skills, plugins, hooks, and MCP servers before installation. Features:
 - 4-phase structured audit (Inventory, Static Analysis, Behavioral Analysis, Verdict)
 - 8 threat categories informed by CVE-2025-59536 and Snyk ToxicSkills study
@@ -31,12 +31,21 @@ Security audit workflow for vetting third-party Claude Code skills, plugins, hoo
 - Triggered by "vet this skill", "audit skill security", "is this skill safe", or "scan skill"
 - [Install from Gist](https://gist.github.com/eva-mishor/839810fe18d1e8e66cf4a9496ea307e8)
 
-### context-audit
+### spring-clean
 Audit and optimize Claude Code session context budget. Use when sessions feel sluggish, context compacts too early, or after installing new plugins/MCP servers. Features:
 - 4-phase process (Measure, Identify Waste, Optimize, Verify)
 - Covers MCP servers, plugins, MEMORY.md, CLAUDE.md, custom agents
 - Quick-reference table of common wins with typical token savings
 - Triggered by "audit context", "optimize context", "context budget", or "session overhead"
+
+### consolidate
+Post-session learning extraction and memory management. Systematically scans the conversation for valuable insights and routes them to the correct persistent storage. Features:
+- 5-phase process (Extract, Route, Deduplicate, Present Proposal, Write)
+- Auto-detects sessions with significant unrecorded learnings
+- Routes to project memory, global CLAUDE.md, project CLAUDE.md, or rules as appropriate
+- Diff-style proposals with user approval before any writes
+- MEMORY.md capacity management with 200-line limit awareness
+- Triggered by "consolidate", "save learnings", "update memory", "extract insights", or "what did we learn"
 
 ## Installation
 
@@ -53,8 +62,9 @@ After adding the marketplace, you can install skills using:
 ```bash
 claude plugin install skill-creator
 claude plugin install mastermind-session
-claude plugin install vet-skill
-claude plugin install context-audit
+claude plugin install bouncer
+claude plugin install spring-clean
+claude plugin install consolidate
 ```
 
 Or through the Claude Code interface when browsing available skills.
@@ -97,11 +107,14 @@ my-claude-skills/
 │   ├── mastermind-session/    # Mastermind session skill
 │   │   ├── SKILL.md           # Main skill documentation
 │   │   └── README.md          # Skill-specific documentation
-│   ├── vet-skill/             # Security audit for third-party skills
+│   ├── bouncer/               # Security audit for third-party skills
 │   │   ├── SKILL.md           # 4-phase audit workflow
 │   │   └── references/        # Attack patterns and threat taxonomy
-│   └── context-audit/         # Session context budget optimizer
-│       └── SKILL.md           # 4-phase audit workflow
+│   ├── spring-clean/          # Session context budget optimizer
+│   │   └── SKILL.md           # 4-phase audit workflow
+│   └── consolidate/           # Post-session learning extraction
+│       ├── SKILL.md           # 5-phase consolidation workflow
+│       └── references/        # Routing heuristics
 └── README.md                  # This file
 ```
 

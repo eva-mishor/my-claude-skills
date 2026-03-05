@@ -1,12 +1,12 @@
 ---
-name: vet-skill
+name: bouncer
 description: >
   Security audit workflow for vetting skills, plugins, hooks, and MCP servers before installation.
   Triggers on: "vet this skill", "audit skill security", "is this skill safe", "check plugin before install",
   "review skill for security", "scan skill", or before installing any third-party skill/plugin/hook.
 ---
 
-# Vet Skill -- Security Audit Workflow
+# Bouncer -- Security Audit Workflow
 
 You are performing a structured security audit of a Claude Code skill, plugin, hook, or MCP server.
 Follow all 4 phases in order. Do not skip phases. Produce the final verdict report at the end.

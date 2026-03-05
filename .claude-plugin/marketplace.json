@@ -23,16 +23,22 @@
           "skills": ["mastermind-session"]
         },
         {
-          "id": "vet-skill",
-          "name": "Vet Skill",
+          "id": "bouncer",
+          "name": "Bouncer",
           "description": "Security audit workflow for vetting skills, plugins, hooks, and MCP servers before installation",
-          "skills": ["vet-skill"]
+          "skills": ["bouncer"]
         },
         {
-          "id": "context-audit",
-          "name": "Context Audit",
+          "id": "spring-clean",
+          "name": "Spring Clean",
           "description": "Audit and optimize Claude Code session context budget",
-          "skills": ["context-audit"]
+          "skills": ["spring-clean"]
+        },
+        {
+          "id": "consolidate",
+          "name": "Consolidate",
+          "description": "Post-session learning extraction and memory management",
+          "skills": ["consolidate"]
         }
       ]
     }
