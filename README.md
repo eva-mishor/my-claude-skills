@@ -22,6 +22,15 @@ Interactive mastermind session with 5-10 thought leaders to solve specific busin
 - 5-phase structured process (Goal Setting, Expert Selection, Facilitated Discussion, Synthesis, Action Planning)
 - Triggered by "mastermind session" or "let's start a mastermind"
 
+### vet-skill
+Security audit workflow for vetting third-party Claude Code skills, plugins, hooks, and MCP servers before installation. Features:
+- 4-phase structured audit (Inventory, Static Analysis, Behavioral Analysis, Verdict)
+- 8 threat categories informed by CVE-2025-59536 and Snyk ToxicSkills study
+- Grep-able detection patterns for each attack vector
+- Reference files for attack patterns and threat taxonomy
+- Triggered by "vet this skill", "audit skill security", "is this skill safe", or "scan skill"
+- [Install from Gist](https://gist.github.com/eva-mishor/839810fe18d1e8e66cf4a9496ea307e8)
+
 ## Installation
 
 ### Add this Marketplace to Claude Code
@@ -37,6 +46,7 @@ After adding the marketplace, you can install skills using:
 ```bash
 claude plugin install skill-creator
 claude plugin install mastermind-session
+claude plugin install vet-skill
 ```
 
 Or through the Claude Code interface when browsing available skills.
@@ -76,9 +86,12 @@ my-claude-skills/
 │   │   ├── LICENSE.txt        # Apache 2.0 license
 │   │   ├── scripts/           # Python utilities
 │   │   └── references/        # Workflow and pattern guides
-│   └── mastermind-session/    # Mastermind session skill
-│       ├── SKILL.md           # Main skill documentation
-│       └── README.md          # Skill-specific documentation
+│   ├── mastermind-session/    # Mastermind session skill
+│   │   ├── SKILL.md           # Main skill documentation
+│   │   └── README.md          # Skill-specific documentation
+│   └── vet-skill/             # Security audit for third-party skills
+│       ├── SKILL.md           # 4-phase audit workflow
+│       └── references/        # Attack patterns and threat taxonomy
 └── README.md                  # This file
 ```
 
