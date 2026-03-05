@@ -31,6 +31,13 @@ Security audit workflow for vetting third-party Claude Code skills, plugins, hoo
 - Triggered by "vet this skill", "audit skill security", "is this skill safe", or "scan skill"
 - [Install from Gist](https://gist.github.com/eva-mishor/839810fe18d1e8e66cf4a9496ea307e8)
 
+### context-audit
+Audit and optimize Claude Code session context budget. Use when sessions feel sluggish, context compacts too early, or after installing new plugins/MCP servers. Features:
+- 4-phase process (Measure, Identify Waste, Optimize, Verify)
+- Covers MCP servers, plugins, MEMORY.md, CLAUDE.md, custom agents
+- Quick-reference table of common wins with typical token savings
+- Triggered by "audit context", "optimize context", "context budget", or "session overhead"
+
 ## Installation
 
 ### Add this Marketplace to Claude Code
@@ -47,6 +54,7 @@ After adding the marketplace, you can install skills using:
 claude plugin install skill-creator
 claude plugin install mastermind-session
 claude plugin install vet-skill
+claude plugin install context-audit
 ```
 
 Or through the Claude Code interface when browsing available skills.
@@ -89,9 +97,11 @@ my-claude-skills/
 │   ├── mastermind-session/    # Mastermind session skill
 │   │   ├── SKILL.md           # Main skill documentation
 │   │   └── README.md          # Skill-specific documentation
-│   └── vet-skill/             # Security audit for third-party skills
-│       ├── SKILL.md           # 4-phase audit workflow
-│       └── references/        # Attack patterns and threat taxonomy
+│   ├── vet-skill/             # Security audit for third-party skills
+│   │   ├── SKILL.md           # 4-phase audit workflow
+│   │   └── references/        # Attack patterns and threat taxonomy
+│   └── context-audit/         # Session context budget optimizer
+│       └── SKILL.md           # 4-phase audit workflow
 └── README.md                  # This file
 ```
 

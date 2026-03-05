@@ -27,6 +27,12 @@
           "name": "Vet Skill",
           "description": "Security audit workflow for vetting skills, plugins, hooks, and MCP servers before installation",
           "skills": ["vet-skill"]
+        },
+        {
+          "id": "context-audit",
+          "name": "Context Audit",
+          "description": "Audit and optimize Claude Code session context budget",
+          "skills": ["context-audit"]
         }
       ]
     }
