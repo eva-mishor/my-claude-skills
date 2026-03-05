@@ -21,6 +21,12 @@
           "name": "Mastermind Session",
           "description": "Interactive mastermind session with thought leaders to solve challenges",
           "skills": ["mastermind-session"]
+        },
+        {
+          "id": "vet-skill",
+          "name": "Vet Skill",
+          "description": "Security audit workflow for vetting skills, plugins, hooks, and MCP servers before installation",
+          "skills": ["vet-skill"]
         }
       ]
     }
