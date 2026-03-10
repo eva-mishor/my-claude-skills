@@ -39,6 +39,12 @@
           "name": "Consolidate",
           "description": "Post-session learning extraction and memory management",
           "skills": ["consolidate"]
+        },
+        {
+          "id": "idea-to-product",
+          "name": "Idea to Product",
+          "description": "Guided process for moving a B2C app idea from concept to revenue-generating MVP",
+          "skills": ["idea-to-product"]
         }
       ]
     }

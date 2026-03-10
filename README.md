@@ -66,6 +66,7 @@ claude plugin install mastermind-session
 claude plugin install bouncer
 claude plugin install spring-clean
 claude plugin install consolidate
+claude plugin install idea-to-product
 ```
 
 Or through the Claude Code interface when browsing available skills.
@@ -93,6 +94,15 @@ python skills/skill-creator/scripts/quick_validate.py skills/my-new-skill
 python skills/skill-creator/scripts/package_skill.py skills/my-new-skill
 ```
 
+### idea-to-product
+Guided interactive process for moving a B2C app idea from raw concept to revenue-generating MVP. Features:
+- 6-phase process (Capture, Validate, Position, Business Model, Build MVP, Launch)
+- Expert frameworks per phase (Thiel, Ries, Godin, Hormozi, Fogg, Ellis, etc.)
+- Phase gates with go/kill/pivot decisions
+- Integrates with validation-talk skill for interview questionnaire generation
+- Deliverable templates generated from conversation
+- Triggered by "idea to product", "I have an app idea", "help me validate my idea"
+
 ## Repository Structure
 
 ```
@@ -113,9 +123,11 @@ my-claude-skills/
 │   │   └── references/        # Attack patterns and threat taxonomy
 │   ├── spring-clean/          # Session context budget optimizer
 │   │   └── SKILL.md           # 4-phase audit workflow
-│   └── consolidate/           # Post-session learning extraction
-│       ├── SKILL.md           # 5-phase consolidation workflow
-│       └── references/        # Routing heuristics
+│   ├── consolidate/           # Post-session learning extraction
+│   │   ├── SKILL.md           # 5-phase consolidation workflow
+│   │   └── references/        # Routing heuristics
+│   └── idea-to-product/       # Guided idea-to-MVP process
+│       └── SKILL.md           # 6-phase interactive coaching workflow
 └── README.md                  # This file
 ```
 
