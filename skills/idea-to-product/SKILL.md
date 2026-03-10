@@ -63,6 +63,7 @@ Then ask: **"What's the idea? Give me whatever you have — a sentence, a paragr
 
 > **Goal:** Turn a vague idea into a testable hypothesis.
 > **Expert frameworks:** Peter Thiel (contrarian thinking), Tim Ferriss (80/20, fear-setting), Cal Newport (focus test)
+> **Integration:** Use the `market-scan` skill when answering Thiel's competitive questions ("Is anyone else building this?")
 > **Output:** One-page brief
 
 ### How to Guide This Phase
