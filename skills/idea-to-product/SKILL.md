@@ -101,7 +101,9 @@ If you detect any of these, call them out directly:
 
 ### Generate Deliverable: One-Page Brief
 
-When you have enough signal, produce this:
+When you have enough signal, produce and **save** the brief to `docs/idea-to-product/<project-name>-one-page-brief.md`. Include the 10x argument and market context alongside the brief template.
+
+Template:
 
 ```
 ONE-PAGE BRIEF
@@ -170,53 +172,117 @@ Present assumptions in a table:
 | A3 | [text]    | Medium      | High      | No        |
 ```
 
-**Step 2: Generate the interview questionnaire.**
-Invoke the `validation-talk` skill with the assumptions from Step 1. This produces a Mom Test-compliant questionnaire with:
-- Assumption mapping per question
-- Kill thresholds for fatal assumptions
-- Scoring framework
-- Signal definitions (observable, not vibes)
+**Step 2: Assess validation approach.**
 
-Present the questionnaire to the user. Walk through it. Adjust as needed.
+The traditional playbook says "interview 20-30 people before building." That was written when building cost months and thousands of dollars. In the AI era, building a testable MVP can cost less — in time, money, and effort — than finding 20 qualified strangers to interview.
 
-**Step 3: Coach on JTBD framing (Christensen).**
+**The principle hasn't changed: validate before you invest heavily. But what counts as "validation" has expanded.**
+
+Evaluate three factors:
+- **Build cost vs. interview cost:** If you can ship an MVP in a weekend, the product itself IS the experiment. If the MVP takes months, interview first.
+- **Founder domain expertise:** If the founder is already the person users come to for help (they're productizing their own expertise), they carry signal that replaces early interviews.
+- **Online signal availability:** If the target audience actively discusses the problem online (Reddit, YouTube, forums, app reviews), mine that data — it's unsolicited Mom Test at scale.
+
+Choose one of:
+
+| Approach | When to use | Validation comes from |
+|----------|------------|----------------------|
+| **Full interview round** (20-30) | Build cost is high, problem space poorly understood, founder is NOT the target user | Conversations before building |
+| **Hybrid** (recommended for most AI-era B2C) | Moderate build cost, some online signal exists | Online research + 5-7 conversations + ship-and-measure |
+| **Build-first validation** | Build cost is very low (days), founder has strong domain expertise, rich online signal already validates core pain | Online research to confirm pain → build MVP → measure real behavior (analytics, conversion, retention) → 5-7 conversations AFTER launch to understand the "why" behind the data |
+
+**Build-first is NOT "skip validation."** It's running the experiment with a live product instead of hypothetical questions. The discipline is the same: define assumptions, set kill thresholds, measure against them. The difference is you're measuring behavior, not self-reported intent. People lie in interviews. Analytics don't.
+
+**Build-first requirements:**
+- Kill criteria defined BEFORE shipping (from Phase 1)
+- Analytics baked into the MVP from day one
+- Time-boxed: set a deadline for go/kill decision (e.g., 4-8 weeks)
+- Investment-capped: set a maximum spend (API costs, hosting, ads)
+- Post-launch conversations (5-7) to understand WHY users behave the way they do — what the data shows but can't explain
+
+**How to manage build-first validation well:**
+
+The build-measure-learn loop only works if you're disciplined about what you measure and honest about what it tells you.
+
+1. **Ship one workflow, not a product.** A launchable MVP is one workflow that ends with a clear user outcome. Not a feature set — a single path from input to value. If you can't describe the workflow in one sentence, you're building too much.
+
+2. **Instrument before you launch.** Track three things from day one: (a) acquisition — how many people arrive, (b) activation — how many complete the core action, (c) the specific behavior you're validating. If you can't measure behavior, you can't learn.
+
+3. **Run a 30-day post-launch cadence:**
+   - Week 1: Fix onboarding friction and obvious bugs. Watch where people drop off.
+   - Week 2: Improve activation — remove steps, clarify messaging. Are people completing the core action?
+   - Week 3: Look at retention — are people coming back? If not, why? This is when to do your 5-7 conversations.
+   - Week 4: Score your assumption scorecard with real data. Make the go/kill/pivot decision.
+
+4. **Consider a concierge MVP first.** Before building software, can you deliver the value manually for 5-10 users? This tests whether people want the *outcome* before you invest in automating it. A concierge MVP can be as simple as: user sends you a shelf photo, you manually build and send them a routine. If they won't engage with free manual service, they won't use an automated one.
+
+5. **Use a landing page as a pre-filter.** Before building anything, a simple landing page with a clear value prop and a signup/waitlist button tests demand with zero build cost. If nobody signs up, the problem or message isn't strong enough — and you've learned that in days, not weeks.
+
+6. **Separate "people want this" from "people will pay for this."** Free usage validates the pain. Conversion to paid validates the business. Don't conflate them. A product with 1000 free users and 0 paying users has validated the pain but invalidated the business model — that's a pricing/positioning problem, not a kill signal.
+
+7. **Don't optimize prematurely.** The MVP exists to answer ONE question: "Is this worth continuing?" Don't A/B test button colors. Don't optimize onboarding flows. Get signal on the core hypothesis first, then optimize.
+
+**Step 3: Online research track.**
+Mine existing conversations for assumption evidence. Use the `demand-scan` skill to systematically search:
+- Reddit communities, YouTube comments, TikTok comments
+- App store reviews of adjacent products
+- Etsy/marketplace reviews for DIY workarounds
+- Forum threads, blog comments
+
+This is unsolicited Mom Test data — people describing real pain without knowing they're being interviewed. Map findings to assumptions. Note: you can't ask follow-ups, and you're sampling self-selected posters.
+
+**Step 4: Quick conversations track (5-7 interviews).**
+Use the `validation-talk` skill to generate a slim questionnaire focused on gaps online research can't fill:
+- Premium tier willingness
+- Input method preferences
+- Trust signals specific to AI
+- Anything requiring follow-up probing
+
+Save questionnaire to `docs/idea-to-product/<project-name>-validation-questionnaire.md`.
+
+**Step 5: Tech validation track.**
+If the product has tech-risk assumptions (e.g., AI accuracy, API feasibility), test those directly. No interviews needed — just build and measure.
+
+**Step 6: Coach on JTBD framing (Christensen).**
 Before they go interview, make sure they understand what to listen for:
 - "What 'job' is the user hiring a solution for?"
 - "What do they currently 'hire' to do this job?" (competitors = behaviors, not just products)
 - "What would make them 'fire' their current solution?"
 - "When exactly does this job arise? What's the trigger moment?"
 
-**Step 4: Warn about biases (Kahneman).**
+**Step 7: Warn about biases (Kahneman).**
 Be direct:
 - "You will hear what you want to hear. That's confirmation bias. Have someone else read your notes."
 - "Two excited interviews is not validation. You need 15-20 minimum."
 - "If the data says kill, you kill it. Sunk cost is not a reason to continue."
+- "Online research has its own bias — you're sampling people who post publicly. Silent sufferers and non-tech-savvy users are invisible."
 
-**Step 5: Send them to interview.**
-Tell the user:
-- Target: 20-30 interviews (minimum 15 for signal)
-- Where to find interviewees (based on their target user)
-- How long per interview (~20-30 minutes)
-- "Come back with your notes and we'll score them together."
-
-**Step 6: Score the results (when they return).**
-Help them fill in the scoring framework from the questionnaire. Apply aggregate thresholds:
+**Step 8: Score the results.**
+Combine evidence from all three tracks. Online research provides volume. Conversations provide depth. Tech validation provides feasibility. Apply aggregate thresholds from the questionnaire:
 - Fatal assumptions: 30%+ showing pain = pass
 - Tech/capability: 50%+ = pass
 - Commitment signals: 20%+ = pass
 
 ### Generate Deliverable: Validation Report
 
+Save to `docs/idea-to-product/<project-name>-validation-report.md`.
+
 ```
 VALIDATION REPORT
 ═══════════════════════════════════════════════
 
-INTERVIEWS: [X] conducted with [target user type]
+VALIDATION APPROACH: [Full interview / Hybrid / Build-first]
+
+EVIDENCE SOURCES:
+• Online research: [X sources across Y platforms]
+• Conversations: [X] conducted with [target user type]
+• Product data: [if build-first: analytics from MVP]
+• Tech validation: [if applicable: accuracy/feasibility results]
 
 ASSUMPTION SCORECARD:
-| ID | Assumption | Result | Evidence |
-|----|-----------|--------|----------|
-| A1 | [text]    | ✅/❌/❓ | [data]   |
+| ID | Assumption | Result | Evidence Source | Evidence |
+|----|-----------|--------|----------------|----------|
+| A1 | [text]    | ✅/❌/❓ | [online/conversation/product data] | [data] |
 
 JTBD STATEMENT:
 "When [situation], I want to [motivation], so I can [outcome]."
@@ -226,6 +292,16 @@ CURRENT ALTERNATIVES:
 
 PAIN SCORE: [X]% vs. kill threshold [Y]%
 
+[If build-first, add:]
+PRODUCT VALIDATION METRICS:
+• Users: [N] (organic / paid)
+• Activation rate: [X]% (completed core action)
+• Day-1 retention: [X]%
+• Day-7 retention: [X]%
+• Conversion to paid: [X]%
+• Kill threshold: [defined in Phase 1]
+• Time elapsed: [X] of [Y] weeks budgeted
+
 DECISION: GO / KILL / PIVOT
 Evidence: [why]
 
@@ -234,13 +310,25 @@ Evidence: [why]
 
 ### Evaluate Gate
 
-- [ ] 15+ interviews conducted with actual target users
+**For full interview or hybrid approach:**
+- [ ] Sufficient evidence gathered (15+ interviews, or online research + 5-7 conversations)
 - [ ] Fatal assumptions cleared kill thresholds (30%+ showing pain)
 - [ ] JTBD articulated in one sentence
 - [ ] Current alternatives and frustrations documented
 - [ ] Go/Kill/Pivot decision made with evidence
 
-**KILL GATE:** If fatal assumptions fail, tell the user directly: "The data says this pain isn't strong enough. Your options: pivot the idea, pivot the audience, or stop. Building would be ignoring your own evidence."
+**For build-first approach:**
+- [ ] Online research confirms core pain exists (strong signal on fatal assumptions)
+- [ ] Kill criteria defined with hard numbers (from Phase 1)
+- [ ] Analytics plan ready (what to measure, what thresholds mean go/kill)
+- [ ] Investment cap set (time + money)
+- [ ] JTBD articulated in one sentence (from online research + domain expertise)
+- [ ] Current alternatives documented
+- [ ] Decision: proceed to build with post-launch validation checkpoint scheduled
+
+For build-first, the gate is lighter — you're not proving everything upfront, you're confirming there's enough signal to justify the (low) cost of building. The REAL gate comes post-launch when you have product data. Schedule a validation checkpoint (e.g., 4 weeks after launch) to score the full assumption scorecard with real data.
+
+**KILL GATE:** If fatal assumptions fail (in any approach), tell the user directly: "The data says this pain isn't strong enough. Your options: pivot the idea, pivot the audience, or stop. Building would be ignoring your own evidence."
 
 **If gate passes:** "The pain is real. Phase 3 — let's figure out how to own this space."
 
@@ -287,6 +375,8 @@ Challenge them:
 - "I'm going to say 'so what?' three times. Your answer needs to get better each time."
 
 ### Generate Deliverable: Positioning Document
+
+Save to `docs/idea-to-product/<project-name>-positioning.md`.
 
 ```
 POSITIONING DOCUMENT
@@ -381,6 +471,8 @@ If the math doesn't work, say so. Help them adjust price, audience size, or mode
 
 ### Generate Deliverable: Business Model One-Pager
 
+Save to `docs/idea-to-product/<project-name>-business-model.md`.
+
 ```
 BUSINESS MODEL
 ═══════════════════════════════════════════════
@@ -465,6 +557,8 @@ Week 4: Polish only what blocks understanding, test with 5 users
 
 ### Generate Deliverable: MVP Spec
 
+Save to `docs/idea-to-product/<project-name>-mvp-spec.md`.
+
 ```
 MVP SPEC
 ═══════════════════════════════════════════════
@@ -548,6 +642,8 @@ Ask:
 - "Yes to 2+: you have something. No: we need to trace back to where it breaks."
 
 ### Generate Deliverable: Launch Report
+
+Save to `docs/idea-to-product/<project-name>-launch-report.md`.
 
 ```
 LAUNCH REPORT
