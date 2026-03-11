@@ -27,9 +27,26 @@ From the idea/brief and any prior market scan, extract:
 - **The closest competitor(s)** to deep-dive on
 - **The output/artifact** the user would get (what does "solved" look like?)
 
-### 2. Competitor Deep-Dive
+### 2. Framing Check
 
-For each close competitor (max 2-3), run targeted searches:
+Before researching, sanity-check the premise itself:
+- **Is the problem statement coherent?** Does the idea conflate two different use cases or user types? (e.g., "voice memos" vs. "live meeting transcription" are different products for different people)
+- **Is the claimed differentiator real?** Search: `"[competitor]" "too complex" OR "bloated" OR "confusing"`. If users don't actually complain about the thing you're differentiating on, your wedge is imaginary.
+- **Who already owns your positioning?** Search: `[competitor] alternative simple OR minimal OR focused OR privacy`. If another product already occupies your intended position, you need to differentiate from THEM, not just from the incumbent.
+
+If the framing check reveals a problem, flag it before spending time on deep research. A well-researched answer to the wrong question is still useless.
+
+### 3. Competitor Deep-Dive
+
+For each close competitor (max 2-3), run targeted searches.
+
+Also search for **who owns adjacent positioning** — not just the incumbent, but the most-recommended alternative. That's your real competition:
+
+| Angle | Query Pattern | What you're looking for |
+|---|---|---|
+| **Positioning owners** | "[competitor] alternative simple OR private OR focused" | Who already occupies the position you want? |
+
+Plus the standard deep-dive angles:
 
 | Angle | Query Pattern | What you're looking for |
 |---|---|---|
@@ -45,7 +62,7 @@ For each close competitor (max 2-3), run targeted searches:
 - "I wish it could..." statements (= unmet needs)
 - "I switched to..." statements (= competitor movement)
 
-### 3. DIY Behavior Hunt
+### 4. DIY Behavior Hunt
 
 Search for evidence that people are already solving this problem with workarounds:
 
@@ -58,7 +75,7 @@ Search for evidence that people are already solving this problem with workaround
 
 **Key insight:** If people are paying for templates, asking strangers for help, or hiring professionals — the demand is real. The question becomes whether your solution is better than the workaround.
 
-### 4. Output Demand Validation
+### 5. Output Demand Validation
 
 Search for evidence that the specific OUTPUT/ARTIFACT your product creates is something people want:
 
@@ -67,7 +84,7 @@ Search for evidence that the specific OUTPUT/ARTIFACT your product creates is so
 - Do people ask for it? (Reddit, forums, Q&A sites)
 - Do people pay for a worse version? (existing products, services)
 
-### 5. Synthesize Signals
+### 6. Synthesize Signals
 
 Classify everything you found:
 
@@ -86,6 +103,11 @@ DEMAND SCAN — [Product/Feature]
 
 WHAT WE'RE VALIDATING:
 [The specific value prop or 10x claim being tested]
+
+FRAMING CHECK:
+• Problem coherent? [Y/N — flag if idea conflates different use cases]
+• Claimed differentiator real? [Y/N — do users actually complain about the thing you're fixing?]
+• Positioning already taken? [By whom, how strongly]
 
 COMPETITOR DEEP-DIVE:
 ┌────────────┬───────────────────────────┬──────────────┐
@@ -133,3 +155,5 @@ VERDICT:
 | Only checking one platform | Reddit + app stores + marketplaces + social = full picture |
 | Ignoring DIY workarounds | Manual solutions are the strongest demand signal |
 | Treating competitor weakness as your strength | Their weakness only matters if users care about it |
+| Only comparing against the incumbent | The most-recommended alternative is your real competition |
+| Skipping framing check | A thorough answer to the wrong question wastes everyone's time |
