@@ -45,6 +45,24 @@
           "name": "Idea to Product",
           "description": "Guided process for moving a B2C app idea from concept to revenue-generating MVP",
           "skills": ["idea-to-product"]
+        },
+        {
+          "id": "market-scan",
+          "name": "Market Scan",
+          "description": "Structured competitive landscape and market research using web search",
+          "skills": ["market-scan"]
+        },
+        {
+          "id": "demand-scan",
+          "name": "Demand Scan",
+          "description": "Targeted demand validation — competitor deep-dives, user complaints, DIY workaround hunting",
+          "skills": ["demand-scan"]
+        },
+        {
+          "id": "validation-talk",
+          "name": "Validation Talk",
+          "description": "Generate Mom Test-compliant interview questionnaires for assumption validation",
+          "skills": ["validation-talk"]
         }
       ]
     }
