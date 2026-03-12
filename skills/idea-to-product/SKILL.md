@@ -702,13 +702,14 @@ DELEGATION MAP:
 
 ## Phase 5: BUILD THE MVP
 
-> **Goal:** Build only what proves the core value proposition. Nothing else.
+> **Goal:** Build only what proves the core value proposition. Nothing else. This is Phase A from the "Ship First, Compound Later" strategy — the experience layer only.
 > **Expert frameworks:** Eric Ries (lean MVP), Cal Newport (deep work), Michael Gerber (systems), BJ Fogg (behavior design)
-> **Output:** MVP spec, behavior loop, metrics plan
+> **Output:** MVP spec, behavior loop, metrics plan, distribution plan
+> **Key inputs:** Phase 4's post-core-action tracking plan and business assumptions (B-series)
 
 ### How to Guide This Phase
 
-**Step 1: Scope ruthlessly (Ries).**
+**Step 1: Scope to Phase A only (Ries + Ship First).**
 Ask:
 - "What is the ONE action the user takes in your app?"
 - "What is the ONE outcome they get from that action?"
@@ -718,30 +719,68 @@ Challenge scope creep: "Does that feature test your core hypothesis? No? Then it
 
 Ask the hard question: "Can you test this without building an app at all? Landing page? Manual process? Spreadsheet?"
 
-**Step 2: Design the habit loop (Fogg).**
+**Phase A / Phase B split:** Explicitly list what IS in the MVP (Phase A — the experience layer) and what is NOT (Phase B — moat features). Phase B features should be named and planned directionally, but not built. The MVP tests whether the experience layer alone justifies payment. Phase B starts only after Phase A validates.
+
+Example split:
+```
+Phase A (MVP):              Phase B (moat — NOT building yet):
+─────────────────────       ─────────────────────────────────
+Core workflow               Ingredient conflict database
+Free/paid paywall           Community data ("similar shelves")
+Basic analytics             Progress tracking over time
+Visual output               Specialized workflows
+```
+
+**Step 2: Design the behavior loop (Fogg).**
 Walk through:
 - "What triggers someone to open your app? A notification? A routine? An emotion?"
 - "What's the smallest possible action they take? Make it tiny."
 - "What reward do they get? Is it variable or predictable?"
 - "What do they invest that makes leaving harder? Data? Customization? Social connections?"
 
-**Step 3: Plan the build (Newport).**
+For sporadic-use products (where the trigger is infrequent), focus less on habit loops and more on: "When the trigger DOES fire, how do we make sure they think of us?" This is a distribution/positioning question more than a behavior design question.
+
+**Step 3: Plan the build (Newport + Ship First 30-day cadence).**
 - "How many deep work hours per day can you commit?"
 - "What's a realistic timeline for the ONE core feature?"
-- "What's your daily learning log going to track?"
 
-Help them set up a simple build cadence:
+The build cadence aligns with the Ship First 30-day post-launch cadence. Plan the build to ship ASAP, then use the 30 days after launch as the real iteration cycle:
+
 ```
-Week 1: Core feature working (ugly is fine)
-Week 2: Aha moment path working (signup → core action → reward)
-Week 3: Analytics + feedback mechanism
-Week 4: Polish only what blocks understanding, test with 5 users
+PRE-LAUNCH:
+Build until the core workflow works end-to-end (ugly is fine).
+Ship when: one path from input → value works. Not polished — complete.
+
+POST-LAUNCH (30-day cadence):
+Week 1: Fix onboarding friction and obvious bugs. Watch drop-off points.
+Week 2: Improve activation — remove steps, clarify messaging.
+         Are people completing the core action?
+Week 3: Look at retention. If not returning, why?
+         Do 5-7 user conversations to understand the "why" behind the data.
+Week 4: Score assumption scorecard (Phase 4 B-series) with real data.
+         Make go/kill/pivot decision.
 ```
 
-**Step 4: Define metrics before building (Ries).**
-- "What's the ONE number that tells you if this MVP works?"
-- "What number means validated? What number means kill?"
-- Help them set up: activation rate, Day-1 retention, Day-7 retention, Sean Ellis test
+**Step 4: Wire up instrumentation (connect to Phase 4).**
+Don't reinvent the metrics plan — Phase 4 already defined what to track. This step is about implementation:
+
+- **Pull in the post-core-action tracking plan** from Phase 4. Every engagement point mapped there becomes an analytics event.
+- **Pull in business assumptions (B-series)** from Phase 4. Each assumption needs a corresponding metric in the product.
+- Add the baseline metrics: activation rate, Day-1 retention, Day-7 retention.
+- Plan for the Sean Ellis test at Week 4 post-launch.
+
+The ONE number that tells you if this MVP works should come from your B-series assumptions — typically the conversion rate (free → paid).
+
+**Step 5: Plan initial distribution.**
+Distribution is 75-80% of success when tech is commoditized. Even at MVP, plan where your first 100 users come from. Don't build first and figure out distribution later — the two are designed together.
+
+Ask:
+- "Where are your target users when the pain hits?" (This should be answered by the behavioral SVA from Phase 3)
+- "What are 3 specific channels you'll use to reach your first 100 users?"
+- "Can the product itself be a distribution mechanism?" (Shareable outputs, screenshots, referral loops)
+- "What's the enrollment story — why should someone try this right now?"
+
+The distribution plan doesn't need to be sophisticated. It needs to be specific: channel → message → expected reach → conversion assumption.
 
 ### Generate Deliverable: MVP Spec
 
@@ -754,6 +793,15 @@ MVP SPEC
 CORE ACTION: [the one thing the user does]
 CORE OUTCOME: [the one thing they get]
 
+PHASE A (BUILDING — experience layer):
+• [feature 1]
+• [feature 2]
+• [feature 3]
+
+PHASE B (NOT BUILDING — moat direction):
+• [feature 1 — why it's Phase B, not A]
+• [feature 2 — why it's Phase B, not A]
+
 BEHAVIOR LOOP:
 • Trigger: [what prompts usage]
 • Action: [simplest behavior]
@@ -761,28 +809,36 @@ BEHAVIOR LOOP:
 • Investment: [what they put in]
 
 BUILD SCHEDULE:
-• Week 1: [milestone]
-• Week 2: [milestone]
-• Week 3: [milestone]
-• Week 4: [milestone]
+• Pre-launch: [what to build, when to ship]
+• Post-launch Week 1: [onboarding fixes, drop-off analysis]
+• Post-launch Week 2: [activation improvement]
+• Post-launch Week 3: [retention analysis + 5-7 user conversations]
+• Post-launch Week 4: [score assumptions, go/kill/pivot]
+
+INSTRUMENTATION (from Phase 4):
+[Post-core-action tracking events wired in]
+[B-series assumptions mapped to metrics]
+
+DISTRIBUTION PLAN:
+• Channel 1: [where] → [message] → [expected reach]
+• Channel 2: [where] → [message] → [expected reach]
+• Channel 3: [where] → [message] → [expected reach]
+• Built-in distribution: [how the product spreads itself]
 
 SUCCESS METRIC: [the one number]
 • Validated if: [threshold]
 • Kill if: [threshold]
-
-EXPLICITLY NOT BUILDING:
-• [feature 1 — and why it's cut]
-• [feature 2 — and why it's cut]
 
 ═══════════════════════════════════════════════
 ```
 
 ### Evaluate Gate
 
-- [ ] MVP does exactly ONE thing
-- [ ] Behavior loop is designed
-- [ ] Analytics plan exists
+- [ ] MVP is Phase A only — Phase B features listed but not built
+- [ ] Behavior loop is designed (or sporadic-use trigger strategy defined)
+- [ ] Instrumentation wired to Phase 4 tracking plan and B-series assumptions
 - [ ] Success/kill numbers defined before building
+- [ ] Distribution plan: 3 specific channels for first 100 users
 - [ ] Tested with 3-5 real users
 - [ ] No feature added that doesn't test the core hypothesis
 
