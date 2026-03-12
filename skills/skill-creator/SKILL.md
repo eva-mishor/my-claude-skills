@@ -208,7 +208,8 @@ Skill creation involves these steps:
 3. Initialize the skill (run init_skill.py)
 4. Edit the skill (implement resources and write SKILL.md)
 5. Package the skill (run package_skill.py)
-6. Iterate based on real usage
+6. Verify the skill (audit + RED/GREEN test)
+7. Iterate based on real usage
 
 Follow these steps in order, skipping only if there is a clear reason why they are not applicable.
 
@@ -344,7 +345,18 @@ The packaging script will:
 
 If validation fails, the script will report the errors and exit without creating a package. Fix any validation errors and run the packaging command again.
 
-### Step 6: Iterate
+### Step 6: Verify the Skill
+
+Before distributing, verify the skill works as intended:
+
+1. **Audit** — Run the `plugin-dev:skill-reviewer` agent to check structure, description quality, content, and progressive disclosure. Fix any critical/major issues.
+2. **RED test** — Run a realistic scenario WITHOUT the skill loaded. Document the baseline: what does the agent get wrong, miss, or over-generate?
+3. **GREEN test** — Run the same scenario WITH the skill. Confirm the skill corrects the baseline failures.
+4. **Refactor** — If the GREEN test reveals loopholes or missed constraints, update the skill and re-test.
+
+For technique skills, test whether the agent applies the technique correctly. For discipline skills, use pressure scenarios (time, sunk cost) and document rationalizations.
+
+### Step 7: Iterate
 
 After testing the skill, users may request improvements. Often this happens right after using the skill, with fresh context of how the skill performed.
 
