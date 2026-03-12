@@ -589,14 +589,25 @@ Then ask:
 - "How much effort does it take on their part?"
 - "What can you add that 10x the perceived value without 10x your cost?"
 
-**Step 2: Set pricing (Brunson + Ferriss).**
+**Step 2: Research comparable monetization (market scan).**
+Before setting pricing, look at how comparable products monetize — not just direct competitors, but similar product shapes in other domains. Use web search to find:
+- Products with similar usage patterns (sporadic vs. daily, one-shot vs. ongoing)
+- Products with similar cost structures (AI/API costs per use)
+- Hybrid, subscription, pay-per-use, and credits-based models in the current market
+- Industry data on conversion rates, churn, and revenue per payer
+
+Map findings to the product's specific characteristics. The goal isn't to copy — it's to ground pricing decisions in market reality before guessing.
+
+**Step 3: Set pricing (Brunson + Ferriss).**
 - "What does this problem currently cost your user? In money, time, frustration?"
 - "If your app saves them $X/month or Y hours/week, what's 10% of that worth?"
 - "Start with one price. What feels right?"
 - Push back if too low: "Underpricing signals low value. What would premium look like?"
 - Push back if too high: "Can your smallest viable audience afford this?"
 
-**Step 3: Map the funnel (Brunson).**
+**Pricing-positioning alignment check:** After proposing a price, pressure-test it against the Phase 3 positioning. Price is a positioning signal — it tells users what category they're in. A $5/month tool and a $15/month service attract different users and set different expectations. Ask: "Does this price match the positioning you defined? Would your target user see this price and think 'that's about right for what this is'?"
+
+**Step 4: Map the funnel (Brunson).**
 For B2C, keep it simple. Walk through:
 ```
 Awareness → Landing Page → Free Trial/Freemium → Aha Moment → Paid → Retention
@@ -606,7 +617,7 @@ Awareness → Landing Page → Free Trial/Freemium → Aha Moment → Paid → R
 - "How long from signup to aha moment? Can you shorten it?"
 - "What triggers the upgrade — what do they hit that makes free not enough?"
 
-**Step 4: Run the numbers (Sullivan).**
+**Step 5: Run the numbers (Sullivan).**
 - "What monthly revenue covers your costs plus 20%?"
 - "At $[price]/month, how many paying users is that?"
 - "Is that number realistic in your market? How would you reach them?"
@@ -615,7 +626,24 @@ Awareness → Landing Page → Free Trial/Freemium → Aha Moment → Paid → R
 
 If the math doesn't work, say so. Help them adjust price, audience size, or model.
 
-**Step 5: Who Not How (Sullivan).**
+**Step 6: Plan post-core-action tracking.**
+The core action (the aha moment) is the hook — but what users do AFTER it tells you where real value lives and what to charge for. Map every engagement point after the core action is delivered:
+- What do users interact with after getting the core output?
+- Which features do they tap, explore, or ignore?
+- Where do they drop off vs. go deeper?
+- What triggers return visits?
+
+This isn't analytics for analytics' sake — it's the data that tells you whether your free/paid split is correct. If users consistently engage with a free feature but ignore paid ones, the paywall is in the wrong place. If a paid feature gets zero engagement, cut it. **Don't decide what to charge for in advance — let the data tell you.**
+
+**Step 7: Tag business assumptions for post-launch tracking.**
+Every pricing and monetization decision made in this phase is an assumption. Tag each one explicitly with:
+- How to measure it post-launch (specific metric)
+- What threshold means it's working vs. failing
+- What action to take if it fails
+
+These assumptions carry forward into Phase 6 as part of the measurement plan. Connect them directly — Phase 4 assumptions become Phase 6 metrics.
+
+**Step 8: Who Not How (Sullivan).**
 - "What can someone else build, design, or market?"
 - "What must YOU personally do?"
 - "Where does $1 of delegation save $10 of your time?"
@@ -643,6 +671,15 @@ UNIT ECONOMICS:
 • CAC estimate: $[X]
 • LTV estimate: $[X]
 • LTV/CAC ratio: [X]
+
+POST-CORE-ACTION TRACKING PLAN:
+[Map of engagement points after the core value is delivered]
+[Which interactions to track and what each signal means]
+
+BUSINESS ASSUMPTIONS (carry to Phase 6):
+| ID | Assumption | Metric | Pass threshold | Fail action |
+|----|-----------|--------|----------------|-------------|
+| B1 | [text]    | [how]  | [threshold]    | [action]    |
 
 DELEGATION MAP:
 • You: [core value work]
