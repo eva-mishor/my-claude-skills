@@ -1,148 +1,93 @@
 # My Claude Skills
 
-Custom repository for personal Claude Code skills.
+Custom skills for [Claude Code](https://docs.anthropic.com/en/docs/claude-code), organized by domain.
 
-## About
+## Skills
 
-This repository contains a collection of custom skills for Claude Code, organized as a local marketplace. Skills extend Claude's capabilities with specialized knowledge, workflows, and tool integrations.
+### Product & Validation
 
-## Available Skills
+| Skill | What it does |
+|-------|-------------|
+| **idea-to-product** | Guided 6-phase process from raw idea to revenue-generating MVP. Socratic coaching with expert frameworks (Thiel, Ries, Hormozi, Ellis), phase gates, and deliverable templates. *Uses: validation-talk, market-scan, demand-scan.* |
+| **validation-talk** | Generates interview questionnaires that produce go/kill signals. Mom Test + JTBD + Sean Ellis PMF — every question maps to an assumption with a kill threshold. |
+| **market-scan** | Broad competitive landscape research via web search. Produces a decision-ready report with sourced findings. |
+| **demand-scan** | Targeted demand validation — competitor deep-dives, user complaints, DIY workaround patterns. Complements market-scan's breadth with depth. |
 
-### skill-creator
-Guide for creating effective skills. Includes:
-- Six-step skill creation process
-- Progressive disclosure design patterns
-- Bundled resources organization (scripts, references, assets)
-- Python utilities for initializing, validating, and packaging skills
+### Session & Workflow
 
-### mastermind-session
-Interactive mastermind session with 5-10 thought leaders to solve specific business, strategic, or personal challenges. Features:
-- Dynamic expert dialogue and interaction
-- Context-aware session continuity
-- 5-phase structured process (Goal Setting, Expert Selection, Facilitated Discussion, Synthesis, Action Planning)
-- Triggered by "mastermind session" or "let's start a mastermind"
+| Skill | What it does |
+|-------|-------------|
+| **mastermind-session** | Interactive roundtable with 5-10 thought leaders to solve business, strategic, or personal challenges. 5-phase structured process. |
+| **consolidate** | Post-session learning extraction. Scans conversation for insights and routes them to the correct persistent storage (memory, CLAUDE.md, rules). |
+| **wait-what** | Session checkpoint — structured summary of what was done, why, and what's next. Use before committing or when you lose track. |
 
-### bouncer
-Security audit workflow for vetting third-party Claude Code skills, plugins, hooks, and MCP servers before installation. Features:
-- 4-phase structured audit (Inventory, Static Analysis, Behavioral Analysis, Verdict)
-- 8 threat categories informed by CVE-2025-59536 and Snyk ToxicSkills study
-- Grep-able detection patterns for each attack vector
-- Reference files for attack patterns and threat taxonomy
-- Triggered by "vet this skill", "audit skill security", "is this skill safe", or "scan skill"
-- [Install from Gist](https://gist.github.com/eva-mishor/839810fe18d1e8e66cf4a9496ea307e8)
+### Meta & Maintenance
 
-### spring-clean
-Audit and optimize Claude Code session context budget. Use when sessions feel sluggish, context compacts too early, or after installing new plugins/MCP servers. Features:
-- 4-phase process (Measure, Identify Waste, Optimize, Verify)
-- Covers MCP servers, plugins, MEMORY.md, CLAUDE.md, custom agents
-- Quick-reference table of common wins with typical token savings
-- Triggered by "audit context", "optimize context", "context budget", or "session overhead"
+| Skill | What it does |
+|-------|-------------|
+| **skill-creator** | Guide for creating new skills. 6-step process with progressive disclosure patterns and Python utilities for init/validate/package. |
+| **bouncer** | Security audit for vetting third-party skills, plugins, hooks, and MCP servers before installation. 4-phase process covering 8 threat categories. |
+| **spring-clean** | Audit and optimize Claude Code session context budget. Covers MCP servers, plugins, MEMORY.md, CLAUDE.md, custom agents. |
 
-### consolidate
-Post-session learning extraction and memory management. Systematically scans the conversation for valuable insights and routes them to the correct persistent storage. Features:
-- 5-phase process (Extract, Route, Deduplicate, Present Proposal, Write)
-- Auto-detects sessions with significant unrecorded learnings
-- Routes to project memory, global CLAUDE.md, project CLAUDE.md, or rules as appropriate
-- Diff-style proposals with user approval before any writes
-- MEMORY.md capacity management with 200-line limit awareness
-- Triggered by "consolidate", "save learnings", "update memory", "extract insights", or "what did we learn"
-- [Install from Gist](https://gist.github.com/eva-mishor/2ca6bfe8f3a2ee5170e996b292340ce0)
-
-## Installation
-
-### Add this Marketplace to Claude Code
+## Install a skill
 
 ```bash
-claude plugin marketplace add /Users/user/Documents/Code/my-claude-skills
+# Install any skill directly from this repo
+claude install-skill https://github.com/eva-mishor/my-claude-skills/tree/main/skills/<skill-name>
 ```
 
-### Install Skills
+### idea-to-product (full toolkit)
 
-After adding the marketplace, you can install skills using:
+idea-to-product invokes 3 companion skills during its phases. Install all four for the complete experience:
 
 ```bash
-claude plugin install skill-creator
-claude plugin install mastermind-session
-claude plugin install bouncer
-claude plugin install spring-clean
-claude plugin install consolidate
-claude plugin install idea-to-product
+claude install-skill https://github.com/eva-mishor/my-claude-skills/tree/main/skills/idea-to-product
+claude install-skill https://github.com/eva-mishor/my-claude-skills/tree/main/skills/validation-talk
+claude install-skill https://github.com/eva-mishor/my-claude-skills/tree/main/skills/market-scan
+claude install-skill https://github.com/eva-mishor/my-claude-skills/tree/main/skills/demand-scan
 ```
 
-Or through the Claude Code interface when browsing available skills.
+> idea-to-product works without the companion skills, but you'll miss the structured research and interview frameworks in Phases 2-3.
 
-## Creating New Skills
+### Other examples
 
-Use the `skill-creator` skill to guide you through creating new skills:
+```bash
+claude install-skill https://github.com/eva-mishor/my-claude-skills/tree/main/skills/bouncer
+claude install-skill https://github.com/eva-mishor/my-claude-skills/tree/main/skills/consolidate
+```
 
-1. Install the skill-creator skill (see above)
-2. Use the skill in Claude Code by typing `/skill-creator` or invoking it through the skills menu
-3. Follow the six-step process to design and implement your skill
+Some skills are also available as standalone gists:
+- [bouncer](https://gist.github.com/eva-mishor/839810fe18d1e8e66cf4a9496ea307e8)
+- [consolidate](https://gist.github.com/eva-mishor/2ca6bfe8f3a2ee5170e996b292340ce0)
 
-### Manual Skill Creation
+## Creating new skills
 
-You can also use the included Python scripts:
+Use the `skill-creator` skill, or manually:
 
 ```bash
 # Initialize a new skill
 python skills/skill-creator/scripts/init_skill.py my-new-skill --path skills/
 
-# Validate your skill
+# Validate
 python skills/skill-creator/scripts/quick_validate.py skills/my-new-skill
-
-# Package your skill for distribution
-python skills/skill-creator/scripts/package_skill.py skills/my-new-skill
 ```
 
-### idea-to-product
-Guided interactive process for moving a B2C app idea from raw concept to revenue-generating MVP. Features:
-- 6-phase process (Capture, Validate, Position, Business Model, Build MVP, Launch)
-- Expert frameworks per phase (Thiel, Ries, Godin, Hormozi, Fogg, Ellis, etc.)
-- Phase gates with go/kill/pivot decisions
-- Integrates with validation-talk skill for interview questionnaire generation
-- Deliverable templates generated from conversation
-- Triggered by "idea to product", "I have an app idea", "help me validate my idea"
-
-## Repository Structure
+## Repo structure
 
 ```
-my-claude-skills/
-├── .claude-plugin/
-│   └── marketplace.json       # Marketplace configuration
-├── skills/
-│   ├── skill-creator/         # Skill creation guide and tools
-│   │   ├── SKILL.md           # Main skill documentation
-│   │   ├── LICENSE.txt        # Apache 2.0 license
-│   │   ├── scripts/           # Python utilities
-│   │   └── references/        # Workflow and pattern guides
-│   ├── mastermind-session/    # Mastermind session skill
-│   │   ├── SKILL.md           # Main skill documentation
-│   │   └── README.md          # Skill-specific documentation
-│   ├── bouncer/               # Security audit for third-party skills
-│   │   ├── SKILL.md           # 4-phase audit workflow
-│   │   └── references/        # Attack patterns and threat taxonomy
-│   ├── spring-clean/          # Session context budget optimizer
-│   │   └── SKILL.md           # 4-phase audit workflow
-│   ├── consolidate/           # Post-session learning extraction
-│   │   ├── SKILL.md           # 5-phase consolidation workflow
-│   │   └── references/        # Routing heuristics
-│   └── idea-to-product/       # Guided idea-to-MVP process
-│       └── SKILL.md           # 6-phase interactive coaching workflow
-└── README.md                  # This file
+skills/
+├── idea-to-product/       # Idea-to-MVP coaching workflow
+├── validation-talk/       # Interview questionnaire generator
+├── market-scan/           # Competitive landscape research
+├── demand-scan/           # Targeted demand validation
+├── mastermind-session/    # Expert roundtable sessions
+├── consolidate/           # Post-session learning extraction
+├── wait-what/             # Session checkpoint summaries
+├── skill-creator/         # Skill creation guide + tools
+├── bouncer/               # Security audit for skills/plugins
+└── spring-clean/          # Context budget optimizer
 ```
-
-## Contributing
-
-To add a new skill to this repository:
-
-1. Create a new directory under `skills/` with your skill name
-2. Add a `SKILL.md` file with YAML frontmatter and skill content
-3. Optionally add `scripts/`, `references/`, or `assets/` directories
-4. Update `.claude-plugin/marketplace.json` to include your skill
-5. Commit and push your changes
 
 ## License
 
-Skills in this repository may have individual licenses. See each skill's directory for details.
-
-- `skill-creator`: Apache License 2.0
+Skills may have individual licenses. See each skill's directory for details.
