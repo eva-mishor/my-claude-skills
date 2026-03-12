@@ -648,6 +648,66 @@ These assumptions carry forward into Phase 6 as part of the measurement plan. Co
 - "What must YOU personally do?"
 - "Where does $1 of delegation save $10 of your time?"
 
+**Step 9: Assumption-Metric Coverage Audit.**
+Before closing Phase 4, cross-reference EVERY assumption from all prior phases against the tracking plan. This is the quality gate that ensures nothing goes unmeasured into the build.
+
+Gather all assumptions:
+- **Kill criteria** from Phase 1
+- **A-series assumptions** from Phase 2 (pain, feasibility, market)
+- **B-series assumptions** from Phase 4 (business model, pricing, monetization)
+
+Cross-reference against the **T-series tracking events** from Step 6.
+
+For each assumption, verify:
+- It has a specific metric or tracking event mapped to it
+- That metric has a pass threshold and a fail action
+- The measurement method is feasible (some metrics come from analytics events, others from billing dashboards, user feedback, or platform-level reporting)
+
+For each tracking event, verify:
+- It maps back to at least one assumption (no orphan metrics — don't track what you won't act on)
+
+**Flag gaps.** Common gaps to check:
+- Assumptions about AI/tech accuracy — often missing a user feedback mechanism (e.g., thumbs up/down)
+- Assumptions about platform/device — often covered automatically by analytics tools but not called out for review
+- Assumptions about API/infrastructure costs — need backend logging or billing dashboard review, not in-app tracking
+- Kill criteria — often stated as vibes ("no revenue after 2 months") without a specific metric threshold
+
+**Produce the assumptions tracker** as a standalone deliverable. This is the single artifact that connects Phase 1 kill criteria + Phase 2 A-series + Phase 4 B-series + Phase 4 T-series into one auditable table.
+
+Save to `docs/idea-to-product/<project-name>-assumptions-tracker.md`.
+
+```
+ASSUMPTIONS TRACKER
+═══════════════════════════════════════════════
+
+PHASE 2 ASSUMPTIONS (Pain & Feasibility):
+| ID | Assumption | Pre-launch signal | Post-launch metric | Pass | Fail action |
+|----|-----------|-------------------|-------------------|------|-------------|
+| A1 | [text]    | [✅/❓/❌]         | [T-event or other] | [threshold] | [action] |
+
+PHASE 4 ASSUMPTIONS (Business Model):
+| ID | Assumption | Post-launch metric | Pass | Fail action |
+|----|-----------|-------------------|------|-------------|
+| B1 | [text]    | [T-event or other] | [threshold] | [action] |
+
+KILL CRITERIA (from Phase 1):
+[List with specific metrics and thresholds]
+
+COVERAGE AUDIT:
+✅ Every assumption has a metric
+✅ Every metric has a threshold
+✅ Every threshold has a fail action
+✅ No orphan metrics (every tracked event maps to an assumption)
+⚠️ Gaps identified and resolved: [list any gaps found and how they were closed]
+
+4-WEEK CHECKPOINT AGENDA:
+1. Score every assumption with real data
+2. Run 5-7 user conversations
+3. Make go/kill/pivot decision
+
+═══════════════════════════════════════════════
+```
+
 ### Generate Deliverable: Business Model One-Pager
 
 Save to `docs/idea-to-product/<project-name>-business-model.md`.
@@ -692,9 +752,12 @@ DELEGATION MAP:
 
 - [ ] Unit economics work on paper (LTV > 3× CAC)
 - [ ] Price tested with at least 5 target users
+- [ ] Pricing aligns with Phase 3 positioning and SVA (price signals the right category)
 - [ ] One clear aha moment identified in the funnel
 - [ ] Build vs. delegate decisions made
 - [ ] Break-even number is realistic
+- [ ] Assumption-metric coverage audit complete — every assumption (A-series + B-series + kill criteria) maps to a measurable metric with threshold and fail action
+- [ ] Assumptions tracker saved as standalone deliverable
 
 **If gate passes:** "The math works. Phase 5 — time to build. And only build what matters."
 
@@ -771,6 +834,19 @@ Don't reinvent the metrics plan — Phase 4 already defined what to track. This 
 
 The ONE number that tells you if this MVP works should come from your B-series assumptions — typically the conversion rate (free → paid).
 
+**Instrumentation completeness check.** Cross-reference the **assumptions tracker** (produced in Phase 4 Step 9) against the instrumentation plan. For every assumption, verify:
+- The corresponding T-series event or alternative measurement method is in the build plan
+- Assumptions measured by analytics platform defaults (e.g., device breakdown, referral source) are called out explicitly for review at the 4-week checkpoint — "automatically captured" ≠ "will be reviewed"
+- Assumptions measured outside the app (e.g., API cost at billing dashboard level, accuracy via user feedback) have a specific review method planned
+- No assumption is left with "we'll figure out how to measure this later"
+
+Flag any gaps. Common gaps found in practice:
+- **AI accuracy assumptions** — need an in-app feedback mechanism (e.g., thumbs up/down). Without it, you're guessing whether the core tech works.
+- **Platform/device assumptions** — analytics tools capture this automatically but it's easy to forget to review. Call it out as a checkpoint agenda item.
+- **Cost assumptions** — API/infrastructure costs need backend logging or billing dashboard review, not in-app events. Plan how and when to check.
+
+If gaps are found, add them to the MVP build plan (as required or optional depending on criticality).
+
 **Step 5: Plan initial distribution.**
 Distribution is 75-80% of success when tech is commoditized. Even at MVP, plan where your first 100 users come from. Don't build first and figure out distribution later — the two are designed together.
 
@@ -837,6 +913,7 @@ SUCCESS METRIC: [the one number]
 - [ ] MVP is Phase A only — Phase B features listed but not built
 - [ ] Behavior loop is designed (or sporadic-use trigger strategy defined)
 - [ ] Instrumentation wired to Phase 4 tracking plan and B-series assumptions
+- [ ] Instrumentation completeness check passed — every assumption in the tracker has a wired metric or explicit review method, no gaps
 - [ ] Success/kill numbers defined before building
 - [ ] Distribution plan: 3 specific channels for first 100 users
 - [ ] Tested with 3-5 real users
