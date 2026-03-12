@@ -17,6 +17,7 @@ Targeted web research to find evidence that people already want what you're buil
 - When you need to prove/disprove demand before building
 - When the user says "is anyone actually asking for this?"
 - When you need to validate a 10x claim with evidence, not just intuition
+- **Within `idea-to-product` Phase 2:** When running as the online research track, also map every finding to the assumption IDs from Phase 2 Step 1. Structure findings by assumption (A1, A2, etc.) in addition to the standard demand-scan categories. This lets the validation report score assumptions directly from research evidence.
 
 ## Process
 

@@ -200,27 +200,7 @@ Choose one of:
 - Investment-capped: set a maximum spend (API costs, hosting, ads)
 - Post-launch conversations (5-7) to understand WHY users behave the way they do — what the data shows but can't explain
 
-**How to manage build-first validation well:**
-
-The build-measure-learn loop only works if you're disciplined about what you measure and honest about what it tells you.
-
-1. **Ship one workflow, not a product.** A launchable MVP is one workflow that ends with a clear user outcome. Not a feature set — a single path from input to value. If you can't describe the workflow in one sentence, you're building too much.
-
-2. **Instrument before you launch.** Track three things from day one: (a) acquisition — how many people arrive, (b) activation — how many complete the core action, (c) the specific behavior you're validating. If you can't measure behavior, you can't learn.
-
-3. **Run a 30-day post-launch cadence:**
-   - Week 1: Fix onboarding friction and obvious bugs. Watch where people drop off.
-   - Week 2: Improve activation — remove steps, clarify messaging. Are people completing the core action?
-   - Week 3: Look at retention — are people coming back? If not, why? This is when to do your 5-7 conversations.
-   - Week 4: Score your assumption scorecard with real data. Make the go/kill/pivot decision.
-
-4. **Consider a concierge MVP first.** Before building software, can you deliver the value manually for 5-10 users? This tests whether people want the *outcome* before you invest in automating it. A concierge MVP can be as simple as: user sends you a shelf photo, you manually build and send them a routine. If they won't engage with free manual service, they won't use an automated one.
-
-5. **Use a landing page as a pre-filter.** Before building anything, a simple landing page with a clear value prop and a signup/waitlist button tests demand with zero build cost. If nobody signs up, the problem or message isn't strong enough — and you've learned that in days, not weeks.
-
-6. **Separate "people want this" from "people will pay for this."** Free usage validates the pain. Conversion to paid validates the business. Don't conflate them. A product with 1000 free users and 0 paying users has validated the pain but invalidated the business model — that's a pricing/positioning problem, not a kill signal.
-
-7. **Don't optimize prematurely.** The MVP exists to answer ONE question: "Is this worth continuing?" Don't A/B test button colors. Don't optimize onboarding flows. Get signal on the core hypothesis first, then optimize.
+**How to manage build-first validation well:** See the "Ship First, Compound Later" section below Phase 2 for the full playbook — shipping discipline, 30-day cadence, concierge MVP option, landing page pre-filter, and the critical distinction between validating pain vs. validating the business.
 
 **Step 3: Online research track.**
 Mine existing conversations for assumption evidence. Use the `demand-scan` skill to systematically search:
@@ -243,25 +223,50 @@ Save questionnaire to `docs/idea-to-product/<project-name>-validation-questionna
 **Step 5: Tech validation track.**
 If the product has tech-risk assumptions (e.g., AI accuracy, API feasibility), test those directly. No interviews needed — just build and measure.
 
+**Step 5b: Commodity check.**
+Ask directly: "Can a general-purpose AI (ChatGPT, Gemini, etc.) roughly replicate your core value today?" If yes, flag this as an **AI-commodity product** — the core intelligence is free and available to anyone. This isn't automatically a kill signal, but it fundamentally changes the strategy. See the AI-Commodity Product Pattern below.
+
 **Step 6: Coach on JTBD framing (Christensen).**
-Before they go interview, make sure they understand what to listen for:
+Whether interviewing or not, nail the JTBD:
 - "What 'job' is the user hiring a solution for?"
 - "What do they currently 'hire' to do this job?" (competitors = behaviors, not just products)
 - "What would make them 'fire' their current solution?"
 - "When exactly does this job arise? What's the trigger moment?"
 
+If conversations are skipped, derive the JTBD from online research evidence — Reddit posts, forum threads, and app reviews contain unsolicited JTBD language. Look for trigger moments ("every morning I stare at..."), hiring/firing language ("I switched to...", "I gave up on..."), and outcome descriptions ("I just want...").
+
 **Step 7: Warn about biases (Kahneman).**
-Be direct:
-- "You will hear what you want to hear. That's confirmation bias. Have someone else read your notes."
-- "Two excited interviews is not validation. You need 15-20 minimum."
+Be direct. Adapt warnings to the validation approach used:
+
+Always:
+- "You will hear what you want to hear. That's confirmation bias."
 - "If the data says kill, you kill it. Sunk cost is not a reason to continue."
-- "Online research has its own bias — you're sampling people who post publicly. Silent sufferers and non-tech-savvy users are invisible."
+
+If conversations conducted:
+- "Two excited interviews is not validation. You need patterns across multiple conversations."
+- "Have someone else read your notes."
+
+If conversations skipped:
+- "Online research has survivorship bias — you're sampling people who post publicly. Silent majority may not care enough to seek a solution."
+- "You have NO depth signal on willingness to pay. The MVP must answer this — watch conversion data honestly."
+- "No conversation data means you're flying on assumptions about trust, pricing, and UX preferences. Be honest with yourself when reading post-launch data."
+
+If AI-commodity product (Step 5b flagged):
+- "The experience gap narrows every month as free tools improve. Your differentiator today can be a default feature tomorrow."
+- "You may overestimate how much people care about the experience layer vs. 'good enough for free.'"
 
 **Step 8: Score the results.**
-Combine evidence from all three tracks. Online research provides volume. Conversations provide depth. Tech validation provides feasibility. Apply aggregate thresholds from the questionnaire:
+Combine evidence from all available tracks. Online research provides volume. Conversations provide depth. Tech validation provides feasibility.
+
+**If conversations were conducted** — apply aggregate thresholds:
 - Fatal assumptions: 30%+ showing pain = pass
 - Tech/capability: 50%+ = pass
 - Commitment signals: 20%+ = pass
+
+**If online-research-only** — use signal strength ratings instead of percentages (you can't calculate "30% of Reddit posts show pain"):
+- Fatal assumptions: Strong signal (multiple independent sources, unsolicited complaints, active workaround behavior) = pass
+- Tech/capability: Confirmed working through direct testing = pass
+- Commitment signals: Evidence of payment for adjacent/inferior solutions (Etsy templates, paid apps, professional services) = pass. Absence of payment signals = open risk, must be tested post-launch
 
 ### Generate Deliverable: Validation Report
 
@@ -334,6 +339,143 @@ For build-first, the gate is lighter — you're not proving everything upfront, 
 
 ---
 
+## Ship First, Compound Later — The AI-Era Product Strategy
+
+This section covers two interconnected realities of building products when AI makes the tech cheap:
+
+1. **The build is no longer the hard part.** What used to take a team of eight engineers four months can now be prototyped by one person over a weekend. If the thing you're making can be reproduced by a motivated stranger with a credit card and an AI subscription, your tech is not your moat.
+2. **Distribution and compounding advantages are everything.** Tech/distribution ratio has shifted from 90/10 to roughly 20/80. The product that wins isn't the one built first — it's the one that reaches the right people and gets harder to kill the longer it exists.
+
+Sources: a16z ("momentum is the moat"), Pieter Levels (12-in-12 challenge, $3.1M/year solo), RevenueCat ("the #1 predictor of success is rate of iteration"), Elena Verna/Lovable ($200M ARR, "re-find PMF every 3 months"), Ben Yoskovitz ("AI did not kill Lean Startup — we're making the same mistakes faster").
+
+### When to Apply
+
+**Step 5b flagged this as an AI-commodity product** — a general-purpose AI can roughly replicate the core value. This pattern also applies broadly to any product where the build cost is low and the distance between "idea" and "functional product" has collapsed.
+
+**This is NOT a kill signal.** It's a strategy shift. Cal AI (calorie counting from food photos — literally what ChatGPT does) succeeded purely on distribution. Cursor ($500M ARR) started as a thin wrapper around GPT/Claude. Perplexity ($9B valuation) used the OpenAI API to verify PMF first, calling it "the best decision they made."
+
+But staying thin IS a kill signal. Jasper AI rose to $120M revenue at a $1.5B valuation, then collapsed to ~$55M when ChatGPT ate generic writing. 73 PDF chat wrappers launched the same week — the category died when ChatGPT added native PDF support. 90% of AI wrappers shut down within 18 months. 60-70% generate zero revenue.
+
+The pattern is clear: **start thin to validate, then build depth to survive.**
+
+### The Core Insight
+
+When the intelligence is free, your product is an **experience layer**, not an intelligence layer. The value is in the package — not the brain.
+
+The delta between "ask ChatGPT" and a dedicated product typically includes some combination of:
+
+- **Visual output** — finished artifacts (images, guides, dashboards), not walls of text
+- **Zero-effort UX** — input → answer, no prompt engineering, no setup
+- **Trustworthy reasoning** — show the "why," not just the answer (transparency builds trust where the AI is a black box)
+- **Persistence** — results saved, revisitable, updatable over time
+- **Done-for-you** — the completed output that people currently create manually or buy blank templates for
+- **Personalization context** — remembers user profile, preferences, history without re-explaining each time
+
+Not all apply to every product. Identify which 2-3 are your primary differentiators and lead with those.
+
+### Phase A: Ship the Experience Layer Fast (Days to Weeks)
+
+The first version isn't the hard part anymore. Ship it to validate — the product IS the experiment.
+
+**Why ship first:**
+- Building a testable MVP can cost less than finding 20 qualified strangers to interview. One person with AI tools can prototype over a weekend.
+- Real behavior beats hypothetical answers. People lie in interviews. Analytics don't. The ship IS the interview.
+- Speed compounds: "Teams that win aren't the ones with a higher success rate — they're the ones who find out faster." (RevenueCat)
+
+**How to ship first well:**
+- Build the thinnest viable experience around the commodity capability
+- Free tier delivers the core promise (same result ChatGPT gives, but packaged better)
+- Paid tier adds depth the commodity can't match
+- Instrument from day one — acquisition, activation, and the specific behavior you're validating
+- Define kill criteria BEFORE shipping. Time-box it (4-8 weeks). Cap investment.
+
+**The reversibility rule:** If the cost of being wrong is reversible and contained, move fast. If it's irreversible or erodes trust, slow down. (RevenueCat)
+
+**Ship fast ≠ ship garbage.** Ship the minimum viable *complete* thing. One workflow that ends with a clear user outcome — not a feature set, a single path from input to value. If you can't describe it in one sentence, you're building too much.
+
+**30-day post-launch cadence:**
+- Week 1: Fix onboarding friction and obvious bugs. Watch where people drop off.
+- Week 2: Improve activation — remove steps, clarify messaging. Are people completing the core action?
+- Week 3: Look at retention. If not returning, why? This is when to do 5-7 user conversations — to understand the "why" behind the data.
+- Week 4: Score your assumption scorecard with real data. Make the go/kill/pivot decision.
+
+**Consider before building software:**
+- **Concierge MVP:** Can you deliver the value manually for 5-10 users first? If they won't engage with free manual service, they won't use an automated version.
+- **Landing page pre-filter:** A clear value prop + signup button tests demand with zero build cost. If nobody signs up, the message or problem isn't strong enough.
+
+**Separate pain from business:** Free usage validates the pain. Conversion to paid validates the business. Don't conflate them. 1000 free users + 0 paying users = validated pain, invalidated business model. That's a pricing/positioning problem, not a kill signal.
+
+**Don't optimize prematurely.** The MVP exists to answer ONE question: "Is this worth continuing?" Don't A/B test button colors. Don't optimize onboarding flows. Get signal on the core hypothesis first, then optimize.
+
+### Phase B: Build the Moat While Live (Months 2-6)
+
+The experience layer gets you in the door. It doesn't keep you alive. Feature moats last ~6 months before foundation models absorb them. You need advantages that compound — things that get harder to replicate the longer they exist.
+
+**The diagnostic test:** "If a team with $50M cloned us tomorrow, what would they still not be able to replicate in 3 years?" Not "our culture" or "our vision" — those are non-answers. What specifically have you built, learned, or earned that requires time and cannot be purchased?
+
+**Defensibility isn't a wall you build. It's a direction you compound in.**
+
+The moat framework most founders know (network effects, switching costs, scale) describes what mature companies look like, not how they got there. Early-stage, focus on these compounding directions:
+
+**1. Proprietary data that improves with use.**
+Not data in the generic sense — structured feedback loops where every user interaction makes the product meaningfully better in a way competitors can't shortcut. Spotify's Discover Weekly works because of a decade of listening behavior, not the algorithm. You can copy the architecture; you cannot copy the training set. After 12-24 months of compounding, the gap becomes uncrossable. If your data doesn't compound, it doesn't defend.
+
+**2. Trust at the infrastructure level.**
+When you become embedded in how people make decisions or run their operations, you stop being a tool and start being a dependency. Prototypes are easy. Production-grade trust (reliability, auditability, consistency) is not, and no weekend hackathon can replicate it.
+
+**3. Distribution that can't be copied with code.**
+Distribution ≠ followers or views. Distribution is the consistency of spreading the right message across the right people. Tech/distribution ratio has shifted to roughly 20/80. Three effective channels:
+- **Organic content** (everyday content + big launches — the combination compounds)
+- **UGC** (users/creators talking about you — total awareness, not just your profile's reach)
+- **Paid marketing** (most predictable, most cash-intensive, and gets more expensive daily)
+
+Distribution is why Cal AI (food photo → calories, which ChatGPT does) captured real market share, and why Pieter Levels' micro-SaaS products survive despite being technically trivial to replicate.
+
+**4. Community and brand independent of the product.**
+Notion's template gallery is user-created, the ambassador program runs itself, and "Notion templates" is now a cottage industry. You can clone the editor; you can't clone the ecosystem of people who made it theirs.
+
+**5. Specialized workflows and integrations.**
+Glean integrates into Slack, Zendesk, Salesforce — switching costs compound. Once you're the system of record, displacement is extremely expensive. Multi-step domain-specific workflows that a general Q&A chatbot doesn't replicate.
+
+**6. Progress tracking / longitudinal value.**
+A stateless chat can't track your progress over time. Products that accumulate user history, show trends, and improve recommendations based on past behavior create value that resets to zero if the user leaves.
+
+**Real examples — thin → deep transitions:**
+- **Perplexity:** OpenAI API wrapper → proprietary models (Sonar, R1 1776) → Shopping Hub, Search API. $9B valuation.
+- **Cursor:** Code completion wrapper → codebase-wide context via vector embeddings → platform with deep IDE integration. $500M ARR.
+- **Notion AI:** GPT-4 writing assistant → workspace Q&A → autonomous agents (Notion 3.0). Revenue $300M → $500M.
+- **GitHub Copilot:** Code completion (Codex wrapper) → agentic features across full SDLC → Copilot SDK for any app.
+
+**Real examples — stayed thin, died:**
+- **Jasper AI:** $120M → ~$55M revenue. ChatGPT ate generic writing. The category blurred beyond recognition.
+- **PDF chat wrappers:** 73 clones, category died when ChatGPT added native PDF support.
+- **Generic summarizers:** Integrated natively into Claude/GPT. Standalone market eliminated.
+- Pattern: "Using GPT is not a moat. It's a feature."
+
+### Moat Timeline
+
+- **Month 1-2:** Ship thin, validate experience layer, measure WTP
+- **Month 2-6:** Begin building compounding advantages (data flywheel, distribution, community)
+- **Month 6-12:** Feature moats expire — if you haven't started compounding, the window is closing
+- **Month 12-24:** Data/workflow moats become defensible if you started early
+- **Ongoing:** Re-find PMF every ~3 months as the landscape shifts (Elena Verna / Lovable)
+
+### How This Affects Downstream Phases
+
+- **Phase 3 (Positioning):** Lead with the experience, not the AI. The one-liner should describe the output/experience, not the technology. "Photo your shelf. Get your routine." — not "AI-powered skincare analysis."
+- **Phase 4 (Business Model):** Free tier must deliver real value (because ChatGPT is the free alternative). Paywall goes on depth and continuity, not on the core promise. The free experience IS your acquisition channel — users share it. Consider distribution strategy as part of the business model — distribution is 75-80% of success when tech is cheap.
+- **Phase 5 (MVP):** Build Phase A only. Phase B features are explicitly NOT in the MVP. The MVP tests whether the experience layer alone justifies payment over the free commodity. Plan Phase B moat direction before shipping, but don't build it yet.
+- **Phase 6 (Launch):** Position against the behavior ("stop prompting ChatGPT"), not against other apps. Your competitor is a free, general-purpose tool — your marketing must make the experience gap viscerally obvious. Distribution strategy (organic + UGC + paid) matters more than the launch itself.
+
+### Kill Criteria Adjustment
+
+Standard kill criteria apply, plus:
+- If free-tier usage is high but conversion to paid is zero after 4+ weeks, the experience layer alone isn't enough. Either accelerate Phase B (build the moat) or pivot.
+- Monitor whether general-purpose AI closes the experience gap. If ChatGPT adds persistence, visual outputs, or domain templates that match your UX, your window is closing — accelerate moat-building or kill.
+- Apply the honest test: "Does someone's life or work get worse if this product disappears tomorrow?" If the honest answer is no, you don't have a company yet — you have a feature.
+
+---
+
 ## Phase 3: POSITION & DIFFERENTIATE
 
 > **Goal:** Define why you, why this, and for whom — in words users would actually use.
@@ -341,6 +483,13 @@ For build-first, the gate is lighter — you're not proving everything upfront, 
 > **Output:** Positioning document
 
 ### How to Guide This Phase
+
+**Step 0: Commodity check (if flagged in Phase 2 Step 5b).**
+If the product was flagged as an AI-commodity product, start here before defining category. The positioning must lead with the **experience**, not the intelligence. Reference the AI-Commodity Product Pattern above.
+
+Ask: "Given that ChatGPT/general AI can roughly do the core thing — what does YOUR product deliver that they can't? Not technically — experientially. What does the user get from you that they'd never get from a chat prompt?"
+
+This answer constrains everything that follows — category, differentiator, one-liner, and monetization.
 
 **Step 1: Define the category (Ries + Dunford).**
 Ask:
@@ -359,6 +508,8 @@ Push back if the differentiator is a feature list. "Pick one thing. The one that
 - "What's the purple cow — the remarkable thing that makes this worth talking about?"
 
 If they say "everyone would like it" — push back: "Products for everyone are products for no one. Narrow it."
+
+**SVA guidance:** Push toward **behavioral** audience definitions, not demographics. "Women 25-45" is a demographic — it tells you nothing about intent. "People who've already gone looking for help online" is a behavior — it tells you they have the pain AND have acted on it. The qualifying question is: "What has your audience already *done* that makes them your audience?" A behavioral SVA also often reveals the right platform — if they search when the pain hits, meet them where they search.
 
 **Step 3: Build the StoryBrand script (Miller).**
 Walk through each element conversationally:
