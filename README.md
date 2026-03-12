@@ -20,6 +20,7 @@ Custom skills for [Claude Code](https://docs.anthropic.com/en/docs/claude-code),
 | **mastermind-session** | Interactive roundtable with 5-10 thought leaders to solve business, strategic, or personal challenges. 5-phase structured process. |
 | **consolidate** | Post-session learning extraction. Scans conversation for insights and routes them to the correct persistent storage (memory, CLAUDE.md, rules). |
 | **wait-what** | Session checkpoint — structured summary of what was done, why, and what's next. Use before committing or when you lose track. |
+| **tech-to-social** | Turn technical work (commits, PRs, bug fixes, architecture decisions) into LinkedIn posts. 2-3 draft variations per request with hook patterns, tone selection, and series planning. |
 
 ### Meta & Maintenance
 
@@ -84,6 +85,7 @@ skills/
 ├── consolidate/           # Post-session learning extraction
 ├── wait-what/             # Session checkpoint summaries
 ├── skill-creator/         # Skill creation guide + tools
+├── tech-to-social/        # Technical work → LinkedIn posts
 ├── bouncer/               # Security audit for skills/plugins
 └── spring-clean/          # Context budget optimizer
 ```
