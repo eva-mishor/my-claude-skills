@@ -626,7 +626,17 @@ Awareness → Landing Page → Free Trial/Freemium → Aha Moment → Paid → R
 
 If the math doesn't work, say so. Help them adjust price, audience size, or model.
 
-**Step 6: Plan post-core-action tracking.**
+**Step 6: Market sanity check (bottom-up SOM).**
+Don't ask "what percentage of the market can we capture?" — that's top-down guessing. Instead, build SOM from constraints already established in this phase:
+
+1. **Channel reach.** "From Step 4 — what channels will you use to reach people? For each channel, how many potential users can you realistically reach per month?" (e.g., SEO: 5K visits/mo, Instagram: 2K, ProductHunt launch: 10K one-time)
+2. **Conversion funnel.** "What's a realistic conversion rate from reach → signup → active use → paid?" Use industry benchmarks if pre-launch: B2C app-store conversion 2-5%, freemium-to-paid 2-5%, landing page 3-8%.
+3. **Calculate bottom-up SOM.** Monthly reach × conversion rate × price = projected monthly revenue. Compare this to the break-even number from Step 5.
+4. **Sanity check against SAM.** If your implied market share exceeds 5% of SAM in year one, push back — recent tech IPOs achieved only 0.1-2% of their addressable market *at exit* (Pear VC). "Your numbers imply [X]% of SAM. What gives you an unfair advantage to capture that?"
+
+If bottom-up SOM can't reach break-even: the market is too small, the channels are too weak, or the conversion assumptions are fantasy. Name it. Help them adjust channels, expand SAM, or reconsider the model.
+
+**Step 7: Plan post-core-action tracking.**
 The core action (the aha moment) is the hook — but what users do AFTER it tells you where real value lives and what to charge for. Map every engagement point after the core action is delivered:
 - What do users interact with after getting the core output?
 - Which features do they tap, explore, or ignore?
@@ -635,7 +645,7 @@ The core action (the aha moment) is the hook — but what users do AFTER it tell
 
 This isn't analytics for analytics' sake — it's the data that tells you whether your free/paid split is correct. If users consistently engage with a free feature but ignore paid ones, the paywall is in the wrong place. If a paid feature gets zero engagement, cut it. **Don't decide what to charge for in advance — let the data tell you.**
 
-**Step 7: Tag business assumptions for post-launch tracking.**
+**Step 8: Tag business assumptions for post-launch tracking.**
 Every pricing and monetization decision made in this phase is an assumption. Tag each one explicitly with:
 - How to measure it post-launch (specific metric)
 - What threshold means it's working vs. failing
@@ -643,12 +653,12 @@ Every pricing and monetization decision made in this phase is an assumption. Tag
 
 These assumptions carry forward into Phase 6 as part of the measurement plan. Connect them directly — Phase 4 assumptions become Phase 6 metrics.
 
-**Step 8: Who Not How (Sullivan).**
+**Step 9: Who Not How (Sullivan).**
 - "What can someone else build, design, or market?"
 - "What must YOU personally do?"
 - "Where does $1 of delegation save $10 of your time?"
 
-**Step 9: Assumption-Metric Coverage Audit.**
+**Step 10: Assumption-Metric Coverage Audit.**
 Before closing Phase 4, cross-reference EVERY assumption from all prior phases against the tracking plan. This is the quality gate that ensures nothing goes unmeasured into the build.
 
 Gather all assumptions:
@@ -656,7 +666,7 @@ Gather all assumptions:
 - **A-series assumptions** from Phase 2 (pain, feasibility, market)
 - **B-series assumptions** from Phase 4 (business model, pricing, monetization)
 
-Cross-reference against the **T-series tracking events** from Step 6.
+Cross-reference against the **T-series tracking events** from Step 7.
 
 For each assumption, verify:
 - It has a specific metric or tracking event mapped to it
@@ -732,6 +742,13 @@ UNIT ECONOMICS:
 • LTV estimate: $[X]
 • LTV/CAC ratio: [X]
 
+MARKET SANITY CHECK (Bottom-Up SOM):
+• Channel 1: [name] → [reach/mo] × [conversion] = [customers/mo]
+• Channel 2: [name] → [reach/mo] × [conversion] = [customers/mo]
+• Projected monthly revenue: [customers × price]
+• Break-even gap: [projected vs. required from unit economics]
+• Implied SAM share (year 1): [X]% — [realistic / needs justification / red flag]
+
 POST-CORE-ACTION TRACKING PLAN:
 [Map of engagement points after the core value is delivered]
 [Which interactions to track and what each signal means]
@@ -756,6 +773,7 @@ DELEGATION MAP:
 - [ ] One clear aha moment identified in the funnel
 - [ ] Build vs. delegate decisions made
 - [ ] Break-even number is realistic
+- [ ] Bottom-up SOM reaches break-even through identifiable channels with defensible conversion rates
 - [ ] Assumption-metric coverage audit complete — every assumption (A-series + B-series + kill criteria) maps to a measurable metric with threshold and fail action
 - [ ] Assumptions tracker saved as standalone deliverable
 
